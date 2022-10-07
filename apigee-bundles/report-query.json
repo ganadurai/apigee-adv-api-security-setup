@@ -1,0 +1,17 @@
+{
+  "dimensions": [
+    "ax_resolved_client_ip",
+  ],
+  "metrics": [
+    {
+      "aggregation_function": "count_distinct",
+      "name": "bot"
+    },
+    {
+      "aggregation_function": "sum",
+      "name": "bot_traffic"
+    },
+  ],
+  "groupByTimeUnit": "minute",
+  "timeRange": "last7days"
+}
