@@ -28,30 +28,17 @@ The Apigee Advanced API Security Demo toolkit sets up sample proxies and the nee
     ```
 
 ### Installation & Execute the demo
-    (Run the following to the get the usage information)
+1. Run the following to the get the usage information
     ```bash
     ./advapisec-demo-setup.sh
     ```
-    (Example run, this will install the needed artifacts in Apigee org)
+    
+1. Setup run, this will install the needed artifacts in Apigee org and executes the simulation
     ```bash
     ./advapisec-demo-setup.sh -a install
     ```
 
-    (Example run, this will clean the adv api security demo artifacts in Apigee org)
+1. Cleanup run, this will clean the adv api security demo artifacts in Apigee org
     ```bash
     ./advapisec-demo-setup.sh -a cleanup
     ```
-
-### Post Installation
-    Share the output of the script execution to trigger api security simulation
-
-
-
-function report_gen() {
-    echo "Setup Adv API Security report"
-
-    curl -s -X POST "$MGMT_HOST/v1/organizations/$APIGEE_ORG/environments/$APIGEE_ENV/local/securityReports" \
-       -X POST -d @./apigee-bundles/Query.json \
-       -H 'Content-type: application/json' \
-       -H "Authorization: Bearer $TOKEN"
-}
