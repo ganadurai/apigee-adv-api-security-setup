@@ -17,7 +17,6 @@
 set -e
 
 function submitJob() {
-  echo "starting.."
   OUTPUT=$(curl -s -X POST -H "Content-Type:application/json" \
         -H "x-apikey: ${APIK}" \
         "${JOB_CONTROLLER_ENDPOINT}/v1/jobs" -d \
