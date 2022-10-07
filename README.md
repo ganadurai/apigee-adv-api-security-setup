@@ -24,7 +24,7 @@ The Apigee Advanced API Security Demo toolkit sets up sample proxies and the nee
     export JOB_CONTROLLER_ENDPOINT="https://eval-group.35-186-236-163.nip.io"
     export BOT_PERCENT="50"
     export BOT_SRC_IPADDRESS="127.0.0.1"
-    export JOB_CONTROLLER_EXECUTION_TIMER=80
+    export JOB_CONTROLLER_EXECUTION_PERIOD=80
     ```
 
 ### Installation & Execute the demo
@@ -35,7 +35,7 @@ The Apigee Advanced API Security Demo toolkit sets up sample proxies and the nee
     
 1. Setup run, this will install the needed artifacts in Apigee org and executes the simulation
     ```bash
-    ./advapisec-demo-setup.sh -a install
+    ./advapisec-demo-setup.sh -a setup
     ```
 
 1. Cleanup run, this will clean the adv api security demo artifacts in Apigee org
