@@ -144,7 +144,7 @@ function setup() {
         "${MGMT_HOST}/v1/organizations/${APIGEE_ORG}/developers/advapisec-developer@google.com/apps/advapisec-demo-app" | \
         jq '.credentials[0].consumerKey'); \
         CONSUMER_KEY=$(echo "$CONSUMER_KEY"|cut -d '"' -f 2); export CONSUMER_KEY;
-    echo "CONSUMER_KEY - $CONSUMER_KEY"
+    #echo "CONSUMER_KEY - $CONSUMER_KEY"
     
     printf "\nExtracting the consumer secret\n"
     CONSUMER_SECRET=$(curl -s -H "Authorization: Bearer ${TOKEN}"  \
@@ -152,7 +152,7 @@ function setup() {
         "${MGMT_HOST}/v1/organizations/${APIGEE_ORG}/developers/advapisec-developer@google.com/apps/advapisec-demo-app" | \
         jq '.credentials[0].consumerSecret'); \
         CONSUMER_SECRET=$(echo "$CONSUMER_SECRET"|cut -d '"' -f 2); export CONSUMER_SECRET;
-    echo "CONSUMER_SECRET - $CONSUMER_SECRET"
+    #echo "CONSUMER_SECRET - $CONSUMER_SECRET"
     printf "\n"
 }
 

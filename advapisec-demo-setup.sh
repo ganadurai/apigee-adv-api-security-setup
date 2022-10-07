@@ -23,10 +23,10 @@ source ./scripts/job-initiate.sh
 usage() {
     echo -e "$*\n usage: $(basename "$0")" \
         "-a <action>\n" \
-        "example: $(basename "$0") -a install\n" \
+        "example: $(basename "$0") -a setup\n" \
         "example: $(basename "$0") -a cleanup\n" \
         "Parameters:\n" \
-        "-a --action : Install or Cleanup action, valid values 'install', 'cleanup'"
+        "-a --action : Install or Cleanup action, valid values 'setup', 'cleanup'"
     exit 1
 }
 
@@ -59,16 +59,17 @@ fi
 
 export MGMT_HOST="https://apigee.googleapis.com"
 export APIGEE_ORG=$APIGEE_PROJECT_ID
+export APIK="LRUoMgiTSS7GpJNt5r9PVPsu8pI0oq8TurPA24MAd4Gpb05F"
 
 if [ "$ACTION" == 'cleanup' ]; then
     validate;
     cleanup;
-elif [ "$ACTION" == 'install' ]; then
+elif [ "$ACTION" == 'setup' ]; then
     validate;
     setup;
     #fetchEnvHostnames;
-    echo "Waiting 30 secs, for the deployments to be complete"
-    sleep 30;
+    echo "Waiting 60 secs, for the deployments to be complete"
+    sleep 60;
     echo "Initiating the simulation job"
     submitJob;
 else

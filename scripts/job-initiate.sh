@@ -17,9 +17,9 @@
 set -e
 
 function submitJob() {
-  echo "Initiating job"
-
-  JOB_ID=$(curl -s -X POST -H "Content-Type:application/json" \
+  echo "starting.."
+  OUTPUT=$(curl -s -X POST -H "Content-Type:application/json" \
+        -H "x-apikey: ${APIK}" \
         "${JOB_CONTROLLER_ENDPOINT}/v1/jobs" -d \
         '{
           "ipaddress": "'"${BOT_SRC_IPADDRESS}"'",
@@ -28,11 +28,12 @@ function submitJob() {
           "clientkey": "'"${CONSUMER_KEY}"'",
           "clientsecret": "'"${CONSUMER_SECRET}"'",
           "projectid": "'"${APIGEE_PROJECT_ID}"'"
-        }' | jq '.jobid')
+        }')
+    #echo "$OUTPUT"
+    JOB_ID=$(echo "$OUTPUT" | jq '.jobid') 
     JOB_ID=$(echo "$JOB_ID"|cut -d '"' -f 2); export JOB_ID;
     printf "\n"
     echo "Job status check:"
-    echo "curl ${JOB_CONTROLLER_ENDPOINT}/v1/jobs/$JOB_ID"
+    echo "curl -H 'x-apikey: $APIK' ${JOB_CONTROLLER_ENDPOINT}/v1/jobs/$JOB_ID"
     printf "\n"
 }
-
