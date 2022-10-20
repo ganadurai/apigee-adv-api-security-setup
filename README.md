@@ -8,7 +8,7 @@ The Apigee Advanced API Security Demo toolkit sets up sample proxies and the nee
     ```bash
     export APIGEE_PROJECT_ID=<apigee-project-id where the demo will be executed>
     export APIGEE_ENV=<apigee-env>
-    export APIGEE_ENV_HOSTNAME=<apigee-env-group-hostname>
+    export APIGEE_ENV_HOSTNAME=<apigee-env-group-hostname> #Indicate the protocol https or http ex: https://my-apigee.example.com
     ```
 
 1. Set up the gcloud authentication and fetch the tokens.
