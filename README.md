@@ -37,6 +37,12 @@ The Apigee Advanced API Security Demo toolkit sets up sample proxies and the nee
     ```bash
     ./advapisec-demo-setup.sh -a setup
     ```
+1. Follow the instructions, to view the status of the bot executions and completion statu.
+
+1. Sample report creation.
+    ```bash
+    ./scripts/report-gen.sh 
+    ```
 
 1. Cleanup run, this will clean the adv api security demo artifacts in Apigee org
     ```bash
